@@ -4,8 +4,8 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
 
-class TestCT01:
-    def test_login(self):
+class TestCT02:
+    def test_logout(self):
         self.driver = webdriver.Chrome()
 
         self.driver.get("https://www.saucedemo.com/")
@@ -19,6 +19,19 @@ class TestCT01:
         button_login.click()
 
         # time.sleep(5)
-        title_products = WebDriverWait(self.driver, wait_time).until(EC.presence_of_element_located((By.XPATH, "//span[text()='Products']")))
+        title_products = WebDriverWait(self.driver, wait_time).until(
+            EC.presence_of_element_located((By.XPATH, "//span[text()='Products']")))
 
         assert title_products.is_displayed(), "Elemento não está visível na página"
+
+        button_menu_hamburger = self.driver.find_element(by=By.ID, value="react-burger-menu-btn")
+        button_menu_hamburger.click()
+
+        button_logout = WebDriverWait(self.driver, wait_time).until(
+            EC.visibility_of_element_located((By.ID, "logout_sidebar_link")))
+        button_logout.click()
+
+        title_swag_labs = WebDriverWait(self.driver, wait_time).until(
+            EC.presence_of_element_located((By.CLASS_NAME, "login_logo")))
+
+        assert title_swag_labs.is_displayed(), "Elemento não está visível na página"
