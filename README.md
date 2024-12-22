@@ -2,7 +2,7 @@
 
 ### Descrição
 
-Serão realizados seis casos de teste para o e-commerce fictício usado para casos de estudo (https://www.saucedemo.com/). Os 5 casos de teste mapeados serão realizados utilizando Selenium WebDriver e Pytest. Mais detalhes de cada cenário abaixo 
+Serão realizados 5 casos de teste para o e-commerce fictício usado para casos de estudo (https://www.saucedemo.com/). Os casos mapeados serão realizados utilizando Selenium WebDriver e Pytest. Mais detalhes de cada cenário abaixo 
 
 ### CT01 - Realizar o login de um usuário
 
