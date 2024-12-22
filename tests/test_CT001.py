@@ -22,3 +22,5 @@ class TestCT01:
         title_products = WebDriverWait(self.driver, wait_time).until(EC.presence_of_element_located((By.XPATH, "//span[text()='Products']")))
 
         assert title_products.is_displayed(), "Elemento não está visível na página"
+
+        self.driver.quit()

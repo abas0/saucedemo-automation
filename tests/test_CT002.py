@@ -35,3 +35,5 @@ class TestCT02:
             EC.presence_of_element_located((By.CLASS_NAME, "login_logo")))
 
         assert title_swag_labs.is_displayed(), "Elemento não está visível na página"
+
+        self.driver.quit()
