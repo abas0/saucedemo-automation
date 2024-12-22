@@ -6,8 +6,8 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
 
-class TestCT03:
-    def test_adcionar_itens_carrinhos(self):
+class TestCT04:
+    def test_remove_items(self):
         self.driver = webdriver.Chrome()
 
         self.driver.get("https://www.saucedemo.com/")
@@ -27,8 +27,7 @@ class TestCT03:
 
         button_add_cart = self.driver.find_elements(by=By.XPATH, value="//button[@class = 'btn btn_primary btn_small "
                                                                        "btn_inventory ']")
-        for i in range(0, len(button_add_cart)):
-            button_add_cart[i].click()
+        button_add_cart[0].click()
 
         icon_cart = self.driver.find_element(by=By.CLASS_NAME, value="shopping_cart_link")
         self.driver.execute_script("arguments[0].scrollIntoView();", icon_cart)
@@ -36,5 +35,13 @@ class TestCT03:
         title_product_cart = self.driver.find_elements(by=By.CSS_SELECTOR, value=".cart_item_label "
                                                                                  ".inventory_item_name ")
         assert len(title_product_cart) > 0, "Elementos não encontrado"
+
+        remove_button = self.driver.find_elements(by=By.XPATH, value="//button[text() = 'Remove']")
+        remove_button[0].click()
+
+        title_product_cart = self.driver.find_elements(by=By.CSS_SELECTOR, value=".cart_item_label "
+                                                                                 ".inventory_item_name ")
+
+        assert len(title_product_cart) == 0, "Elementos não deletado"
 
         self.driver.quit()
