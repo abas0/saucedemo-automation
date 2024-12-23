@@ -53,3 +53,5 @@ class TestCT05:
 
         text_complete_order = WebDriverWait(self.driver, wait_time).until(EC.presence_of_element_located((By.CLASS_NAME, "complete-text")))
         assert text_complete_order.is_displayed()
+
+        self.driver.quit()
