@@ -11,7 +11,7 @@ class LoginPage:
     input_username = (By.ID, "user-name")
     input_password = (By.ID, "password")
     button_login = (By.ID, "login-button")
-    title_products = (By.XPATH, "//span[text()='Products']")
+    title_swag_labs = (By.CLASS_NAME, "login_logo")
 
     # invocando o __init da classe Base
     # driver=None porque não é necessário fornecer um driver diretamente ao instanciar a classe
@@ -40,8 +40,8 @@ class LoginPage:
 
     def is_title_found(self):
         try:
-            title_products = WebDriverWait(self.driver, 10).until(
-                EC.presence_of_element_located(self.title_products))
-            return title_products.is_displayed()  #verificar se o elemento está visível e retorna True
+            title_swag_labs = WebDriverWait(self.driver, 10).until(
+                EC.presence_of_element_located(self.title_swag_labs))
+            return title_swag_labs.is_displayed()
         except:
             return False
