@@ -24,6 +24,6 @@ class TestCT02:
 
         menu_page.click_logout()
 
-        assert menu_page.is_title_found(), "Elemento não está visível na página"
+        assert login_page.is_title_found(), "Elemento não está visível na página"
 
         self.driver.quit()

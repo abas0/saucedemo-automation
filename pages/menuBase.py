@@ -20,7 +20,7 @@ class MenuPage:
             return False
 
     def click_menu_hamburger(self):
-        self.driver.find_element(self.menu_hamburger).click()
+        self.driver.find_element(*self.menu_hamburger).click()
 
     def click_logout(self):
         WebDriverWait(self.driver, 10).until(
