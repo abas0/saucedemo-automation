@@ -1,7 +1,4 @@
-import time
-
 from selenium import webdriver
-from selenium.webdriver.common.by import By
 
 from pages.cartBase import CartPage
 from pages.loginBase import LoginPage
@@ -28,6 +25,6 @@ class TestCT03:
 
         menu_page.scroll_to_element()
         menu_page.click_icon_cart()
-        assert cart_page.is_length_greater_than_zero() > 0, "Elementos não encontrados"
+        assert cart_page.get_length() > 0, "Elementos não encontrados"
 
         self.driver.quit()

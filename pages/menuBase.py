@@ -34,6 +34,10 @@ class MenuPage:
         for i in range(0, len(button_add_cart)):
             button_add_cart[i].click()
 
+    def select_one_product(self):
+        button_add_cart = self.driver.find_elements(*self.button_add_cart)
+        button_add_cart[0].click()
+
     def scroll_to_element(self):
         icon_cart = self.driver.find_element(*self.icon_cart)
         self.driver.execute_script("arguments[0].scrollIntoView();", icon_cart)
